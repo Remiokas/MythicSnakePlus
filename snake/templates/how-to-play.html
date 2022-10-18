@@ -1,10 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<h1>How To Play:</h1>
+<ul>
+    <li><div class="green"></div>Is your snake</li><br>
+    <li><div class="orange"></div>Is food that grows your snake and increases its speed</li><br>
+    <li><div class="yellow"></div>Is food that must be consumed within 10 seconds or else you will lose!</li><br>
+    <li><div class="black"></div>Is an extra wall on the field, if hit you will lose!</li><br>
+    <li><div class="blue"></div>Is food that breaks a wall on the field once consumed 3 times</li><br>
+    <li>You move your snake using the arrow keys</li><br>
+    <li>Each time you eat your regular food your score increases</li><br>
+    <li>Have Fun!</li>
+</ul>
+{% endblock %}

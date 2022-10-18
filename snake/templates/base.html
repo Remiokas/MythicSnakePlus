@@ -16,6 +16,9 @@
         <a href="/login/">Log in</a>
         {% endif %}
         <a href="/">Home</a>
+        {% if user.is_authenticated %}
+        <a href="/how-to-play/">How To Play</a>
+        {% endif %}
         <a href="/play/">Play</a>
     </nav>
 </header>

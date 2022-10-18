@@ -46,3 +46,8 @@ class ProfileView(generic.ListView):
         context = super(ProfileView, self).get_context_data(*args, **kwargs)
         context['user'] = get_object_or_404(SnakeUser, username__icontains=self.kwargs['username'])
         return context
+
+
+class GameRulesView(generic.ListView):
+    template_name = 'how-to-play.html'
+    queryset = ''

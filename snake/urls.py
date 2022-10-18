@@ -9,5 +9,6 @@ urlpatterns = [
     path('register/', views.RegisterView.as_view(), name='register'),
     path('', include('django.contrib.auth.urls')),
     path('<str:username>', views.ProfileView.as_view(), name='profile'),
+    path('how-to-play/', views.GameRulesView.as_view(), name='how-to-play')
 ] + (static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) +
     static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))
