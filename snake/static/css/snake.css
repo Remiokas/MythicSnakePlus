@@ -1,0 +1,45 @@
+#game-board {
+    margin-left: 25%;
+    background: #cc99ff;
+    width: 96vmin;
+    height: 96vmin;
+    display: grid;
+    grid-template-rows: repeat(31, 1fr);
+    grid-template-columns: repeat(31, 1fr);
+}
+
+.snake {
+    background: #00FF00;
+    border: .25vmin solid black;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    color: black;
+}
+
+.food {
+    background: #FF6347;
+    border: .25vmin solid black;
+}
+
+.wall {
+    background: #000000;
+}
+
+.gg-food {
+    background: #FFBF00;
+    border: .25vmin solid black;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    color: black;
+}
+
+.wall-food {
+    background: #0000FF;
+    border: .25vmin solid black;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    color: black;
+}

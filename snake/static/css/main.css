@@ -1,0 +1,25 @@
+header {
+    position: relative;
+    font-size: 72px;
+    text-align: center;
+    font-weight: bold;
+    background: #cf8409;
+    color: #000000;
+}
+
+nav {
+    font-size: 20px;
+    text-align: right;
+    background: #c0c0a6;
+}
+
+body {
+    background: #000000;
+    color: #FFFFFF;
+}
+
+ nav a, nav a:hover, nav a:focus, nav a:active {
+      text-decoration: none;
+      color: inherit;
+      margin: 2rem;
+ }

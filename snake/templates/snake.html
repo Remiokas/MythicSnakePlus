@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+    {% load static %}
+<link rel="stylesheet" href="{% static 'css/snake.css' %}">
+{% if user.is_authenticated %}
+<div>
+    <div id="game-board"></div>
+</div>
+{% else %}
+<h1>Register to play the game!</h1>
+<p>Don't have an account? Create One <a href="/register">Here!</a></p>
+{% endif %}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type='module' src="{% static 'js/gameloop.js' %}"></script>
+{% endblock %}
