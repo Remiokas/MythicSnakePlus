@@ -3,6 +3,7 @@ import {randomGridPosition} from './grid.js'
 import {onWall} from './wall.js'
 
 export let ggFood = getRandomGgFoodPosition();
+export let ggFoodCount = 0;
 let startCheck = false;
 
 let currentTime = new Date().getTime();
@@ -18,6 +19,7 @@ export function update() {
     if (onSnake(ggFood)) {
         ggFood = getRandomGgFoodPosition();
         currentTime = new Date().getTime();
+        ggFoodCount += 1;
     }
 }
 

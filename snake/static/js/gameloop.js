@@ -1,9 +1,10 @@
 import {update as updateSnake, draw as drawSnake, snakeSpeed, getSnakeHead, snakeTouch, gameScore, onSnake} from './snake.js'
 import {update as updateFood, draw as drawFood} from './food.js'
 import {update as updateWall, draw as drawWall, wallList}  from './wall.js'
-import {update as updateGgFood, draw as drawGgFood, checkGgTimer} from './ggFood.js'
-import {update as updateWallFood, draw as drawWallFood} from './wallFood.js'
+import {update as updateGgFood, draw as drawGgFood, checkGgTimer, ggFoodCount} from './ggFood.js'
+import {update as updateWallFood, draw as drawWallFood, wallBreakCount} from './wallFood.js'
 import {outsideGrid} from './grid.js'
+import {scoreSender} from './score_poster.js'
 
 let lastRenderTime = 0;
 let gameOver = false;
@@ -13,6 +14,7 @@ let snakeHeadSelector = document.getElementsByClassName('snake');
 
 function main(currentTime, startTime) {
     if (gameOver) {
+        scoreSender(gameScore, wallBreakCount, ggFoodCount)
         return alert(gameScore)
     }
     window.requestAnimationFrame(main);

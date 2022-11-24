@@ -3,10 +3,11 @@ from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
-from .forms import RegisterForm
+from .forms import RegisterForm, ProfileUpdateForm
 from django.contrib import messages
 from .models import SnakeUser, Plays
-
+from rest_framework import generics, permissions
+from .serializers import PlaysSerializer
 
 class PlayView(generic.ListView):
     template_name = 'snake.html'
@@ -51,3 +52,12 @@ class ProfileView(generic.ListView):
 class GameRulesView(generic.ListView):
     template_name = 'how-to-play.html'
     queryset = ''
+
+
+class PlaysListApi(generics.ListCreateAPIView):
+    queryset = Plays.objects.all()
+    serializer_class = PlaysSerializer
+    # permission_classes = [permissions.IsAuthenticated]
+
+    def perform_create(self, serializer):
+        serializer.save(reviewer=self.request.user)

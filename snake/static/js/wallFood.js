@@ -3,6 +3,7 @@ import {randomGridPosition} from './grid.js'
 import {onWall, wallList} from './wall.js'
 
 export let wallFood = getRandomWallFoodPosition();
+export let wallBreakCount = 0;
 let wallFoodCounter = 0;
 
 export function update() {
@@ -34,5 +35,6 @@ export function wallBreak() {
     if (wallFoodCounter === 3){
         wallList.pop();
         wallFoodCounter = 0;
+        wallBreakCount += 1;
     }
 }

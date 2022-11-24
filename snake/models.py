@@ -9,4 +9,6 @@ class SnakeUser(AbstractUser):
 
 class Plays(models.Model):
     user = models.ForeignKey('SnakeUser', on_delete=models.SET_NULL, null=True)
-    score = models.IntegerField('Score')
+    snake_length = models.IntegerField('snake_length', default=0)
+    bombs_stopped = models.IntegerField('bombs_stopped', default=0)
+    walls_broken = models.IntegerField('walls_broken', default=0)

@@ -13,3 +13,8 @@ class RegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'password1', 'password2']
+
+
+class ProfileUpdateForm:
+    avatar = forms.ImageField()
+    bio = forms.CharField(max_length=400)
