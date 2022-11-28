@@ -58,8 +58,17 @@ class GameRulesView(generic.ListView):
 class PlaysListApi(generics.ListCreateAPIView):
     queryset = Plays.objects.all()
     serializer_class = PlaysSerializer
-    # permission_classes = [permissions.IsAuthenticated]
-
+    permission_classes = [permissions.IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save(user_id=self.request.user.id)
+
+
+class PlayerScoreApi(generics.ListCreateAPIView):
+    queryset = Plays.objects.all()
+    serializer_class = PlaysSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def get_queryset(self):
+        queryset = Plays.objects.filter(user_id=self.kwargs['pk'])
+        return queryset

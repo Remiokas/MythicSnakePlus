@@ -2,9 +2,10 @@ export function scoreSender (snake_length, walls_broken, bombs_stopped) {
     let cookies = document.cookie;
     let tokenCookie = cookies.split(';')[3];
     let token = tokenCookie.split('=')[1];
+    const user_id = JSON.parse(document.getElementById('user_id').textContent);
     let base_url = window.location.origin;
     let data = {
-        'user_id': 2,
+        'user_id': user_id,
         'bombs_stopped': bombs_stopped,
         'snake_length': snake_length,
         'walls_broken': walls_broken

@@ -3,6 +3,7 @@
     {% load static %}
 <link rel="stylesheet" href="{% static 'css/snake.css' %}">
 {% if user.is_authenticated %}
+{{ user.id|json_script:"user_id" }}
 <div>
     <div id="game-board"></div>
 </div>
