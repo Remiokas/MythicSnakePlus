@@ -3,8 +3,7 @@ from .models import Plays
 
 
 class PlaysSerializer(serializers.ModelSerializer):
-    user_id = serializers.ReadOnlyField(source='user.username')
-    id = serializers.ReadOnlyField(source='user.id')
+    user_id = serializers.ReadOnlyField(source='user.id')
 
     class Meta:
         model = Plays

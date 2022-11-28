@@ -9,6 +9,7 @@ from .models import SnakeUser, Plays
 from rest_framework import generics, permissions
 from .serializers import PlaysSerializer
 
+
 class PlayView(generic.ListView):
     template_name = 'snake.html'
     queryset = ''
@@ -59,5 +60,6 @@ class PlaysListApi(generics.ListCreateAPIView):
     serializer_class = PlaysSerializer
     # permission_classes = [permissions.IsAuthenticated]
 
+
     def perform_create(self, serializer):
-        serializer.save(reviewer=self.request.user)
+        serializer.save(user_id=self.request.user.id)

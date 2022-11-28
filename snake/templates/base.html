@@ -12,14 +12,14 @@
         {% if user.is_authenticated %}
         <a href="/{{user.username}}">Profile</a>
         {% else %}
-        <a href="/register/">Register</a>
-        <a href="/login/">Log in</a>
+        <a href="/register">Register</a>
+        <a href="/login">Log in</a>
         {% endif %}
         <a href="/">Home</a>
         {% if user.is_authenticated %}
-        <a href="/how-to-play/">How To Play</a>
+        <a href="/how-to-play">How To Play</a>
         {% endif %}
-        <a href="/play/">Play</a>
+        <a href="/play">Play</a>
     </nav>
 </header>
 <div>
