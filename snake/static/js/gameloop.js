@@ -6,6 +6,12 @@ import {update as updateWallFood, draw as drawWallFood, wallBreakCount} from './
 import {outsideGrid} from './grid.js'
 import {scoreSender} from './score_poster.js'
 
+window.addEventListener("keydown", function(e) {
+    if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+        e.preventDefault();
+    }
+}, false);
+
 let lastRenderTime = 0;
 let gameOver = false;
 let affixWall = false;
@@ -14,8 +20,12 @@ let snakeHeadSelector = document.getElementsByClassName('snake');
 
 function main(currentTime, startTime) {
     if (gameOver) {
-        scoreSender(gameScore, wallBreakCount, ggFoodCount)
-        return alert(gameScore)
+        scoreSender(gameScore, wallBreakCount, ggFoodCount);
+        alert(`Game is Over. Your Score Is: ${gameScore}`);
+        if (confirm('Play Again?')) {
+        window.location = '/play'
+        }
+        return
     }
     window.requestAnimationFrame(main);
     const renderDifference = (currentTime - lastRenderTime) / 1000;
@@ -62,7 +72,7 @@ function wallGG(head) {
     return affixWall
 }
 
-let start = window.confirm('Start The Game?')
+let start = true;
 
 if (start) {
     window.requestAnimationFrame(main);

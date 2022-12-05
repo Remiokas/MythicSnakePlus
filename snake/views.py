@@ -8,6 +8,8 @@ from django.contrib import messages
 from .models import SnakeUser, Plays
 from rest_framework import generics, permissions
 from .serializers import PlaysSerializer
+import requests
+from django.middleware.csrf import get_token
 
 
 class PlayView(generic.ListView):
