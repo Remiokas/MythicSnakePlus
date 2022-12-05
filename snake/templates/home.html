@@ -6,4 +6,24 @@
 <h2>{{message}}</h2>
 {% endfor %}
 {% endif %}
+<div class="high-scores">
+    <div class="scores">
+        <h3>Longest Snake Achieved:</h3>
+        <img class="rounded-circle account-img" src="{{snake.user.avatar.url}}" alt="avatar picture"><br>
+        User: {{snake.user.username}}<br>
+        High Score: {{snake.snake_length}}
+    </div>
+    <div class="scores">
+        <h3>Most Bombs Stopped:</h3>
+        <img class="rounded-circle account-img" src="{{bombs.user.avatar.url}}" alt="avatar picture"><br>
+        User: {{bombs.user.username}}<br>
+        High Score: {{bombs.snake_length}}
+    </div>
+    <div class="scores">
+        <h3>Most Walls Broken:</h3>
+        <img class="rounded-circle account-img" src="{{walls.user.avatar.url}}" alt="avatar picture"><br>
+        User: {{walls.user.username}}<br>
+        High Score: {{walls.snake_length}}
+    </div>
+</div>
 {% endblock %}

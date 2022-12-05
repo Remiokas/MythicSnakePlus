@@ -18,6 +18,14 @@ class PlayView(generic.ListView):
 class HomeView(generic.ListView):
     template_name = 'home.html'
     queryset = ''
+    model = Plays
+
+    def get_context_data(self, *args, **kwargs):
+        context = {'snake': Plays.objects.order_by('-snake_length').first(),
+                   'walls': Plays.objects.order_by('-walls_broken').first(),
+                   'bombs': Plays.objects.order_by('-bombs_stopped').first()
+                   }
+        return context
 
 
 class RegisterView(generic.FormView):

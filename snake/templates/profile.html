@@ -2,8 +2,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 {% block content %}
-{{user.username}}<br>
-{{user.email}}<br>
+<h2>Username: {{user.username}}</h2><br>
+<h2>About User: {{user.bio}}</h2><br>
 <img class="rounded-circle account-img" src="{{user.avatar.url}}" alt="avatar picture"><br>
-{{user.bio}}
 {% endblock %}

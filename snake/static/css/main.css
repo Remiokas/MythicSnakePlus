@@ -66,3 +66,16 @@ ul {
 li div{
     display: inline-block;
 }
+
+.high-scores {
+    display: flex;
+    justify-content: space-around;
+}
+
+.scores {
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+}
