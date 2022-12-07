@@ -1,3 +1,4 @@
+from django.urls import reverse
 from django.views import generic
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
@@ -8,8 +9,7 @@ from django.contrib import messages
 from .models import SnakeUser, Plays
 from rest_framework import generics, permissions
 from .serializers import PlaysSerializer
-import requests
-from django.middleware.csrf import get_token
+from django.views.generic.edit import FormMixin
 
 
 class PlayView(generic.ListView):
@@ -49,14 +49,13 @@ class LoginView(generic.FormView):
     form_class = AuthenticationForm
 
 
-class ProfileView(generic.ListView):
+class ProfileView(generic.DetailView):
+    model = SnakeUser
     template_name = 'profile.html'
-    model = SnakeUser, Plays
-    queryset = ''
 
-    def get_context_data(self, *args, **kwargs):
-        context = super(ProfileView, self).get_context_data(*args, **kwargs)
-        context['user'] = get_object_or_404(SnakeUser, username__icontains=self.kwargs['username'])
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['profile'] = SnakeUser.objects.filter(id=self.object.id)
         return context
 
 

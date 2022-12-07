@@ -15,6 +15,10 @@ class RegisterForm(UserCreationForm):
         fields = ['username', 'email', 'password1', 'password2']
 
 
-class ProfileUpdateForm:
-    avatar = forms.ImageField()
-    bio = forms.CharField(max_length=400)
+class ProfileUpdateForm(UserChangeForm):
+    avatar = forms.ImageField(required=False)
+    bio = forms.CharField(max_length=400, required=False)
+
+    class Meta:
+        model = User
+        fields = ['bio', 'avatar']

@@ -11,6 +11,6 @@ urlpatterns = [
     path('how-to-play', views.GameRulesView.as_view(), name='how-to-play'),
     path('game-scores', views.PlaysListApi.as_view(), name='game-scores'),
     path('game-scores/<int:pk>', views.PlayerScoreApi.as_view(), name='game-score'),
-    path('<str:username>', views.ProfileView.as_view(), name='profile'),
+    path('<int:pk>', views.ProfileView.as_view(), name='profile'),
 ] + (static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) +
     static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT))
